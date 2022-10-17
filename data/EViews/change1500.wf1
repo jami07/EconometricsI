@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="de">
+<head>
+    <title>Lernaktivitäten - change1500.wf1</title>
+
+    <meta http-equiv="content-style-type" content="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" lang="en" content="OpenACS version 5.10.0d23">
+    <link rel="stylesheet" href="/resources/xowiki/xowiki-bootstrap3.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/xotcl-core/titatoggle/titatoggle-dist.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/tlf-lrn/css/navigator-learn.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/acs-templating/forms.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/acs-templating/lists.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/ajaxhelper/bootstrap/css/bootstrap.3.4.1.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/theme-wu-bootstrap/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/xowiki/jquery-ui/jquery-ui.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/theme-wu-bootstrap/css/color/green-bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/resources/theme-wu-bootstrap/css/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="/resources/theme-wu-bootstrap/css/bootstrap-toggle.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/resources/tlf-lrn/css/tlf-lrn.css" type="text/css" media="all">
+   <script type="text/javascript" src="/resources/xowiki/jquery/jquery-3.4.0.min.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" src="/resources/ajaxhelper/bootstrap/js/bootstrap.3.4.1.min.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" src="/resources/theme-wu-bootstrap/js/theme-wu-bootstrap.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" src="/resources/theme-wu-bootstrap/js/js.cookie.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" src="/resources/theme-wu-bootstrap/js/bootstrap-toggle.min.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" src="/resources/tlf-lrn-core/mathjax/MathJax.js?config=TeX-AMS_HTML" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" src="/resources/tlf-lrn/js/tlf-lrn.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" src="/resources/xowiki/jquery-ui/jquery-ui.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" src="/resources/tlf-lrn/js/tlf-lrn-admin.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+   <script type="text/javascript" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3">
+                //Shortcut Keys
+                var keys = {
+                    ctrl: false,
+                    alt: false
+                };
+                document.addEventListener("keydown", function (event) {
+                    var char = event.which || event.keyCode;
+                    if (char == 18) {
+                        keys["alt"] = true;
+                    } else if (char == 17) {
+                        keys["ctrl"] = true;
+                    } else if (keys["ctrl"] && keys["alt"]) {
+                        switch (char) {
+                            case 65:
+                               // Ctrl+Alt+a: toggle admin mode
+                               document.getElementById("adminmodetoggler").submit();
+                               break;
+                            case 66:
+                               // Ctrl+Alt+b: start edit
+                               // remove possible submit parameter in url
+                               var location_url = location.protocol + '//' + location.host + location.pathname;
+                               var editlink = location_url + '?m=edit&return_url=' + window.location.pathname;
+                               window.location.href = editlink;
+                               break;
+                            case 83:
+                               // Ctrl+Alt+s: save edit form
+                               var form = document.querySelector(".lr-form");
+                               if (form != null) {
+                                   var input = document.createElement("input");
+                                   input.setAttribute("type", "hidden");
+                                   input.setAttribute("name", "__action_save");
+                                   input.value = "";
+                                   form.appendChild(input);
+                                   form.submit();
+                               }
+                               break;
+                        }
+                    }
+                });
+                document.addEventListener("keyup", function (event) {
+                    var char = event.which || event.keyCode;
+                    if (char == 18) {
+                        keys["alt"] = false;
+                    } else if (char == 17) {
+                        keys["ctrl"] = false;
+                    }
+                });
+            
+</script>
+
+</head>
+<body>
+  
+
+
+<div class="container-fluid">
+
+    <!-- START HEADER -->
+    <div class="row header">
+
+            <nav class="navbar navbar-default main-nav ">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>                     
+                        <div>
+                            <a  class="navbar-brand" href="/">
+                                 <!-- LOGO AND MYLEARN LG -->
+                                <img class="hidden-xs" src="/resources/theme-wu-bootstrap/images/WU-Learn-white.png" alt="Home">
+                                 <!-- LOGO AND MYLEARN XS -->
+                                <i class="glyphicon glyphicon-home hidden-sm hidden-md hidden-lg"></i>
+                            </a>                            
+                            
+                                <a class="navbar-text"  href="/dotlrn/">MyLearn</a>
+                            
+                        </div>
+                       
+                    </div>                       
+
+                    <div class="collapse navbar-collapse" id="menu-1">
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a  href="/vvz/">Lehrveranstaltungen</a>
+                            </li>
+                            
+                            <li class="dropdown">
+
+  <!-- Display Form for XS, MD, LG -->
+  <form class="navbar-form hidden-sm" role="form" action="/search/search" method="post">
+    <div class="form-group">
+
+      <button type="button" class="btn btn-default dropdown-toggle hidden-xs" data-toggle="dropdown">
+        <i class="glyphicon glyphicon-list"></i>
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu padded search-filter" aria-labelledby="dropdownMenu1">
+        
+          <li>
+            <input id="s__405lg" type="radio" name="search_package_id" value="405" checked>
+            <label for="s__405lg" id="labels__405lg">Suche in LEARN</label>
+          </li>
+        
+          <li>
+            <input id="s__318974439lg" type="radio" name="search_package_id" value="318974439" >
+            <label for="s__318974439lg" id="labels__318974439lg">Suche in dieser LV</label>
+          </li>
+        
+      </ul>
+
+      <label class='sr-only'>Ihre Suche</label>
+      <input type='text' class='form-control' name='q' title='Ihre Suche' placeholder='Ihre Suche'>
+      <input type="hidden" name="__csrf_token" value="C6A535AC3134F93CB3E65C8899B87F9F348B81A6">
+      <button type='submit' class='btn btn-default' title='Suche' ><i class='glyphicon glyphicon-search'></i></button>
+    </div>
+  </form>
+
+
+  <!-- Display Form for SM -->
+  <form class="navbar-form hidden-xs hidden-md hidden-lg" role="form" action="/search/search" method="post">
+    <div class="form-group">
+
+      <a data-toggle="dropdown" href='#' title='Search' class="search-shortcut"><i class="glyphicon glyphicon-chevron-down"></i></a>
+
+      <ul class="dropdown-menu padded" aria-labelledby="dropdownMenu1">
+        
+          <li>
+            <input id="s__405sm" type="radio" name="search_package_id" value="405" checked>
+            <label for="s__405sm" id="labels__405sm">Suche in LEARN</label>
+          </li>
+        
+          <li>
+            <input id="s__318974439sm" type="radio" name="search_package_id" value="318974439" >
+            <label for="s__318974439sm" id="labels__318974439sm">Suche in dieser LV</label>
+          </li>
+        
+
+        <li>
+          <label class='sr-only'>Ihre Suche</label>
+          <input type='text' class='form-control' name='q' title='Ihre Suche' placeholder='Ihre Suche'>
+          <input type="hidden" name="__csrf_token" value="C6A535AC3134F93CB3E65C8899B87F9F348B81A6">
+          <button type='submit' class='btn btn-default' title='Suche' ><i class='glyphicon glyphicon-search'></i></button>
+        </li>
+      </ul>
+
+    </div>
+  </form>
+</li>
+
+
+                            <!-- Language -->
+                            
+                            
+                            <!-- Clicker Surveys  -->
+                            <!-- Clicker Surveys -->
+
+                            <!-- Login/ Logout -->
+                            <li class="dropdown">
+    
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-image: url('/resources/theme-wu-bootstrap/images/avatar_24x24.png');background-repeat: no-repeat;background-position: 15px 11px;">
+            <i class="glyphicon glyphicon-chevron-down" style="margin-left:30px;"></i>
+        </a>
+        <ul class="dropdown-menu logged-in">
+            <li>
+                <a href="/dotlrn/control-panel">Profil: Gertraud Malsiner-Walli</a>
+            </li>
+            <li>
+                <a href="/acs-lang/" title="Change language">Sprache</a>
+            </li>
+            <li class="divider"></li>
+            <li class="text-capitalize">
+                <a>
+                    Derzeit online: 524
+                    
+                        Mitglieder
+                    
+                </a>
+            </li>
+            <li class="text-capitalize">
+                <a>
+                    Letzte 24 Stunden: 10821
+                    
+                        Mitglieder
+                    
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="/register/logout" title="Von Learn@WU Network abmelden">Abmelden</a>
+            </li>
+        </ul>
+    
+</li>
+
+                        </ul>
+
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </nav>
+    </div>
+    <span class="sr-only">Sie sind hier</span>
+
+    
+    <!-- END HEADER -->
+
+
+    <div class="row main-content">
+        
+            <div class="sidebar col-lg-2 col-md-3 col-sm-4">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="minified-submenu toggler" title="Menu ausklappen">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+
+                    <div class="list-group vertical-submenu">
+                        <div class="toggle-bar">
+                            <div class="maxified-submenu toggler" title="Menu einklappen">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </div>
+                        </div>
+                        <ul id="side-menu" class="nav nav-stacked first-level"><li  class=""><a href="/dotlrn/classes/pool/1307.19w/" id="m_portal_home" title="Home" class="firstlevel target icons-16 home_white-16">Home</a></li><li  class=""><a id="m_inform" title="Informieren" class="firstlevel target icons-16 lvinfo_white-16">Informieren</a><ul class='nav nav-second-level'><li  class=""><a class="target icons-16 tlf-syllabus-16" id="m_tlf_xosyllabus_course" href="/dotlrn/classes/pool/1307.19w/syllabus/" title="Syllabus"><span class="sidemenu-text">Syllabus</span></a></li><li  class=""><a class="target icons-16 calendar-16" id="m_dotlrn_calendar" href="/dotlrn/classes/pool/1307.19w/calendar/" title="Kalender"><span class="sidemenu-text">Kalender</span></a></li><li  class=""><a class="target icons-16 news-16" id="m_dotlrn_news" href="/dotlrn/classes/pool/1307.19w/news/" title="Ankündigungen"><span class="sidemenu-text">Ankündigungen</span></a></li><li  class=""><a class="target icons-16 tlf-gradebook-16" id="m_tlf_gradebook" href="/dotlrn/classes/pool/1307.19w/gradebook/" title="Notenbuch"><span class="sidemenu-text">Notenbuch</span></a></li></ul></li><li  class=""><a id="m_learnex" title="Lernen & Üben" class="firstlevel target icons-16 lernmat_white-16">Lernen & Üben</a><ul class='nav nav-second-level'><li  class=""><a class="target icons-16 LR-content-16" id="m_lrn_318974600" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/" title="Lernaktivitäten"><span class="sidemenu-text">Lernaktivitäten</span></a><ul class='nav nav-second-level'><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_350070990" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/info.pdf" title="info.pdf"><span class="sidemenu-text">info.pdf</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_350075041" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/slides.pdf" title="slides.pdf"><span class="sidemenu-text">slides.pdf</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_351284428" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.csv" title="change1500.csv"><span class="sidemenu-text">change1500.csv</span></a></li><li class='sidemenu-here'><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_351284509" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1" title="change1500.wf1"><span class="sidemenu-text">change1500.wf1</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_351284550" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/chicken.csv" title="chicken.csv"><span class="sidemenu-text">chicken.csv</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_351284590" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/chicken.wf1" title="chicken.wf1"><span class="sidemenu-text">chicken.wf1</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_351284633" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/marketing1500.csv" title="marketing1500.csv"><span class="sidemenu-text">marketing1500.csv</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_351284671" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/marketing1500.wf1" title="marketing1500.wf1"><span class="sidemenu-text">marketing1500.wf1</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_351284772" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/viennastocks.csv" title="viennastocks.csv"><span class="sidemenu-text">viennastocks.csv</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_351284954" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/case_1.pdf" title="case_1.pdf"><span class="sidemenu-text">case_1.pdf</span></a></li><li  class=""><a class="target icons-16 LRFolder-16" id="m_lrn_351730897" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/eviews" title="EViews Tutorium"><span class="sidemenu-text">EViews Tutorium</span></a></li><li  class=""><a class="target icons-16 LRExcs-Submit-review-16" id="m_lrn_352460890" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/cs1" title="Case Study 1"><span class="sidemenu-text">Case Study 1</span></a></li><li  class=""><a class="target icons-16 LRFile-Submit-read-16" id="m_lrn_354601516" href="/dotlrn/classes/pool/1307.19w/tlf-lrn/viennastocks.wf1" title="viennastocks.wf1"><span class="sidemenu-text">viennastocks.wf1</span></a></li></ul></li><li  class=""><a class="target icons-16 gruppenaufgabe-16" id="m_tlf_group_manager" href="/dotlrn/classes/pool/1307.19w/admin/groups/groups-list" title="Gruppen"><span class="sidemenu-text">Gruppen</span></a></li><li  class=""><a class="target icons-16 xowiki-16" id="m_dotlrn_xowiki" href="/dotlrn/classes/pool/1307.19w/xowiki/" title="Wiki"><span class="sidemenu-text">Wiki</span></a></li></ul></li><li  class=""><a href="/dotlrn/classes/pool/1307.19w/admin/" id="m_admin" title="Verwalten" class="firstlevel target icons-16 communityAdmin-16">Verwalten</a></li></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-10 col-md-9 col-sm-8" id="page-content">
+        
+            <h3 class="community_title"><a href="/dotlrn/classes/pool/1307.19w/" title="1307 - Ökonometrie I">1307 - Ökonometrie I</a></h3>
+        
+    <nav class="navbar navbar-default navbar-static-top" role="navigation"><div class="container-fluid">
+<ul class="nav navbar-nav"><li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Lernaktivitäten<b class="caret"></b>
+</a><ul class="dropdown-menu">
+<li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/" title="Startseite" id="nsf_____ElT">Startseite</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/admin/table-of-contents" title="Index" id="nsf_____ElU">Index</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/admin/table-of-contents?mode=assignments" title="Überblick über Aufgaben" id="nsf_____ElV">Überblick über Aufgaben</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/admin/grading-scheme" title="Notenschema" id="nsf_____ElW">Notenschema</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/admin/settings" title="Einstellungsprofile" id="nsf_____ElX">Einstellungsprofile</a></li>
+</ul>
+</li></ul><ul class="nav navbar-nav"><li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Diese Seite...<b class="caret"></b>
+</a><ul class="dropdown-menu">
+<li class="disabled"><a href="" title="Element..." id="nsf_____ElZ">Element...</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1?cancel_url=/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1&amp;m=edit" title="Bearbeiten" id="nsf_____Ela">Bearbeiten</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1?m=delete&amp;return_url=/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1" title="Löschen" id="nsf_____Elb">Löschen</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1?m=set_publish_status&amp;state=production&amp;return_url=/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1" title="Freigabe aufheben" id="nsf_____Elc">Freigabe aufheben</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1?m=tlf-clipboard-add&amp;return_url=/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1&amp;objects=de:change1500.wf1" title="Zur Zwischenablage hinzufügen" id="nsf_____Eld">Zur Zwischenablage hinzufügen</a></li><li class="divider"></li><li class="disabled"><a href="" title="Erweiterte Funktionen" id="nsf_____Ele">Erweiterte Funktionen</a></li><li class=""><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1?m=delete-user-submit-instance&amp;return_url=/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1" title="Eigene Ergebnisse löschen" id="nsf_____Elf">Eigene Ergebnisse löschen</a></li>
+</ul>
+</li></ul><ul class="nav navbar-nav navbar-right"><form class="navbar-form navbar-right" style="margin-right: 1em;" name="adminmodetoggler" id="adminmodetoggler" action="/dotlrn/classes/pool/1307.19w/tlf-lrn/admin/toggle-admin-mode">
+<input type="hidden" name="return_url" value="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1"><span style="padding:15px;">Verwalten</span><input type="checkbox" id="adminmodetoggler_button" data-toggle="toggle" data-on="ein" data-off="aus" checked="true">
+</form></ul>
+</div></nav>
+
+            <h1 class="pagetitle">change1500.wf1</h1>
+        <!-- Generated by ::xowiki::ADP_Generator on Tue Nov 17 09:44:38 AM CET 2009 -->
+
+
+<div class='path'>
+                        <ul class='list-inline small'><li><a href='/dotlrn/classes/pool/1307.19w/tlf-lrn/'>Lernaktivitäten</a></li><li><a>change1500.wf1</a></li>
+                        </ul>
+                    </div>
+
+
+<div class="" id="pagecontent">
+    
+    <form action="/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1?m=submit&amp;return_url=/dotlrn/classes/pool/1307.19w/tlf-lrn/change1500.wf1" method="POST" role="form" id="357480263" class="Form-LRFile-Submit-read">
+<div>
+<input type="hidden" name="__object_name" value="en:userabgabe__351284509"><input type="hidden" name="__form_action" value="save-form-data"><input type="hidden" name="__current_revision_id" value="357480264"><input type="hidden" name="__csrf_token" value="C6A535AC3134F93CB3E65C8899B87F9F348B81A6">
+</div><div class="form-widget"><input type="hidden" maxlength="400" id="F.en_userabgabe__351284509._name" name="_name" value="en:userabgabe__351284509"></div><div class="form-widget"><input type="hidden" id="F.en_userabgabe__351284509._page_order" name="_page_order" value=""></div><div class="form-widget"><input type="hidden" id="F.en_userabgabe__351284509._title" name="_title" value="change1500.wf1"></div><div class="form-widget"><input type="hidden" id="F.en_userabgabe__351284509._creator" name="_creator" value="Gertraud Malsiner-Walli"></div><div class="form-widget"><input type="hidden" id="F.en_userabgabe__351284509._assignee" name="_assignee" value="150770798"></div><div class="form-widget"></div><div class="form-widget"><input type="hidden" id="F.en_userabgabe__351284509._description" name="_description" value=""></div><div class="form-widget"><input type="hidden" id="F.en_userabgabe__351284509._nls_language" name="_nls_language" value="en_US"></div>
+                <div class="form-widget"><input type="hidden" id="F.en_userabgabe__351284509._publish_date" name="_publish_date" value="9999-12-31 23:59:59.0+01" class="compound-field"></div>
+                
+                
+        
+        
+        <div class="Form-LRFile-Admin"><div>
+<hr><div class="form-widget">
+<div class="btn btn-default" style="width:100%;text-align:left;">
+<p>Download:</p><p><span class="page_white.png"><a href="/dotlrn/classes/pool/1307.19w/tlf-lrn/download/file/de:change1500.wf1/file?filename=change1500.wf1" class="file">change1500.wf1<span class="file"> </span>
+</a></span></p><p class="small">102.025 Bytes</p>
+</div><div style="margin-top:1em;" class="small text-muted"><p>
+<span class="bold">Inhaltstyp: </span><span>application/octet-stream</span><br><span class="bold">Änderungsdatum: </span><span> 01. Oktober 2019 15:18</span><br><span class="bold">von User/in: </span><span>Gertraud Malsiner-Walli</span>
+</p></div>
+</div>
+</div></div>
+</form>
+</div>
+
+
+<div class="footer-references">
+     
+</div>
+
+
+
+        </div>
+    </div>
+
+    <div class ="row footer">
+        <div class="col-sm-8 col-sm-push-2 text-center">
+            <ul class="list-inline small">
+                <li><a href="http://www.wu.ac.at" title="WU">WU</a></li>
+                <li><a href="http://www.wu.ac.at/bibliothek/" title="Startseite der Universitätsbibliothek">Bibliothek</a></li>
+                <li><a href="http://www.oeh-wu.at" title="Portal der Hochschülerschaft an der WU">ÖH WU</a></li>
+                <li><a href="http://www.wu.ac.at/studierende/tools-services/" title="LPIS">LPIS</a></li>
+                <li><a href="https://controlpanel.wu.ac.at/" title="Control Panel">Control Panel</a></li>
+            </ul>
+            <p><img src="/resources/theme-wu-bootstrap/images/accr_03.png" ></p>
+            <ul class="list-inline small">
+                <li><a href="/about">Über</a></li>
+                <li><a href="/about/support">Learn@WU Support</a></li>
+                <li><a href="/about/impressum">Impressum</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+  
+    <script type="text/javascript" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3">
+          function get_popular_tags(popular_tags_link, prefix) {
+            var http = new XMLHttpRequest();
+            http.open('GET', popular_tags_link, true);
+            http.onreadystatechange = function() {
+              if (http.readyState == 4) {
+                if (http.status != 200) {
+                  alert('Something wrong in HTTP request, status code = ' + http.status);
+                } else {
+                  var e = document.getElementById(prefix + '-popular_tags');
+                  e.innerHTML = http.responseText;
+                  e.style.display = 'block';
+                }
+              }
+            };
+            http.send(null);
+          }
+        </script>
+    <script type="text/javascript" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3">
+            var e = document.getElementById('nsf_____Elb');
+            if (e !== null) {
+            e.addEventListener('click', function (event) {if (!confirm(unescape('Wollen Sie dieses Element wirklich löschen?'))) {event.preventDefault();}}, false);
+        }
+        </script>
+    <script type="text/javascript" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3">
+            var e = document.getElementById('nsf_____Elf');
+            if (e !== null) {
+            e.addEventListener('click', function (event) {if (!confirm(unescape('Wollen Sie dieses Element wirklich löschen?'))) {event.preventDefault();}}, false);
+        }
+        </script>
+    <script type="text/javascript" src="/resources/acs-subsite/core.js" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3"></script>
+    <script type="text/javascript" nonce="679BF6EF8A06626BDE5FE9615B8890A75DD843E3">
+                window.addEventListener('load', function () {
+                    
+            var pageContentElement = document.getElementById("pagecontent");
+            items = pageContentElement.getElementsByClassName("missing");
+            for (var i = 0; i < items.length; i++) {
+                item = items[i];
+                if (item.nodeName == "A") {
+                    item.style.color = "#ff0000";
+                }
+            }
+            items = pageContentElement.getElementsByClassName("refused-link");
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                if (item.nodeName == "SPAN") {
+                    item.style.color = "#ff9900";
+                }
+            }
+;
+                }, false);
+            </script>
+
+
+</body>
+</html>

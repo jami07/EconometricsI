@@ -1,0 +1,53 @@
+---
+title: "Econometrics 1 - Case Study 1"
+author: ""
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 0 Import data
+
+```{r}
+data = read.csv("ELCONS_GDP.csv")
+head(data)
+```
+
+## 1 Data Analysis
+
+```{r}
+summary(data)
+```
+
+```{r}
+plot(data$GDP, data$TOTALCONS,
+     main="Total energy consumption over GDP for multiple countries in the year 2000",
+     xlab="GDP [M$]",
+     ylab="Total energy consumption [GWh]")
+```
+
+```{r}
+plot(log10(data$GDP), log10(data$TOTALCONS),
+     main="loglog plot of Total energy consumption over GDP for multiple countries in the year 2000",
+     xlab="GDP [log10(M$)]",
+     ylab="Total energy consumption [log10(GWh)]")
+```
+
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
