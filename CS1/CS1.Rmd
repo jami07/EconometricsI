@@ -1,8 +1,10 @@
 ---
 title: "Econometrics 1 - Case Study 1"
-author: ""
-output: html_document
+author: ''
 date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -22,25 +24,78 @@ head(data)
 summary(data)
 ```
 
+The mean of $GDP$ is ... 
+# TODO
+
+```{r}
+#define plot labels
+xlabel="GDP [M$]"
+ylabel="Total energy consumption [GWh]"
+xloglabel="GDP [log10(M$)]"
+yloglabel="Total energy consumption [log10(GWh)]"
+
+
+```
+
+
 ```{r}
 plot(data$GDP, data$TOTALCONS,
-     main="Total energy consumption over GDP for multiple countries in the year 2000",
-     xlab="GDP [M$]",
-     ylab="Total energy consumption [GWh]")
+     main="Total energy consumption over GDP in the year 2000",
+     xlab=xlabel,
+     ylab=ylabel)
 ```
 
 ```{r}
 plot(log10(data$GDP), log10(data$TOTALCONS),
-     main="loglog plot of Total energy consumption over GDP for multiple countries in the year 2000",
-     xlab="GDP [log10(M$)]",
-     ylab="Total energy consumption [log10(GWh)]")
+     main="loglog plot of Total energy consumption over GDP in the year 2000",
+     xlab=xloglabel,
+     ylab=yloglabel)
 ```
 
+
+
+
+
+## 1.2 Simple linear regression
+
+A simple linear regression with a vanishing error term ($E(u)=0$) is easily possible with built-in commands:
 
 
 ```{r cars}
-summary(cars)
+ols = lm(
+         TOTALCONS ~ GDP,
+         data = data
+)
+summary(ols)
+ols$coefficients
 ```
+
+```{r message=FALSE}
+#install.packages("dplyr")
+library(dplyr)
+#install.packages("ggplot2")
+library(ggplot2)
+```
+
+
+```{r}
+
+data %>% ggplot(mapping = aes(x = GDP, y = TOTALCONS)) +
+  theme_minimal() +
+  geom_point() +
+  #geom_smooth(method = "lm", se = FALSE) + #no standard error plotted
+  geom_smooth(method = "lm") +
+  labs(x=xlabel, y=ylabel,
+       title="Can an increase in GDP explain the increase in total energy consumption?",
+       subtitles="Yes! The linear regression model explains about 97,6% of the data.",
+       caption="linear regression model parameters: -37542+0.3379*GDP") +
+  scale_x_continuous(trans='log10') +
+  scale_y_continuous(trans='log10')
+
+
+```
+
+
 
 ## Including Plots
 
