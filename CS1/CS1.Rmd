@@ -115,7 +115,18 @@ We can see a very strong linear relationship between the GDP and total energy co
 
 ## 1.4 Residual plot of Model 1
 
+```{r}
+#ols$residuals
+#resid(ols)
+plot(data$GDP, ols$residuals)
+```
 
+Check if residuals have a mean of $0$ (checkif $E[u|X] == 0$)
+
+```{r}
+mean(ols$residuals)
+```
+Yes. This is extremely small and close to the machine accuracy.
 
 ## 1.5 Log-log-linear Model
 
