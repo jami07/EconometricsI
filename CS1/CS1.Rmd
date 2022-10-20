@@ -127,7 +127,9 @@ $$
 We can rewrite this simply by using the inverse of the natural logarithm, which is the exponential function.
 
 $$
-Y = e^{\beta_0 + \beta_1 log(X) + u}
+Y = e^{\beta_0 + \beta_1 log(X) + u} = 
+e^{\beta_0} \cdot e^{\beta_1 log(X)} \cdot e^u = 
+\tilde{\beta_0} \cdot X^{\beta_1} \cdot \tilde{u}
 $$
 
 R can handle the implicit definition as given in the first equation:
@@ -143,7 +145,7 @@ summary(mdl2)
 ```{r}
 mdl2$coefficients
 ```
-The values of this model for $\hat{\beta_0}$ is $-0.2539 \ log(GWh)$ and for $\hat{\beta_1}$ it is $0.9187 \ \frac{log(GWh)}{log(M\$)}.
+The values of this model for $\hat{\beta_0}$ is $-0.2539 \ log(GWh)$ and for $\hat{\beta_1}$ it is $0.9187 \ \frac{log(GWh)}{log(M\$)}$.
 $\hat{\beta_1}$ is the coefficient associated with an increase of the logarithm of GDP. This means that, in the model, an increase of $1\%$ results in an increase of $0.9187\%$.
 
 ## 1.6 Plot of Model 2 (the log-log-linear model)
