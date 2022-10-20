@@ -1,6 +1,6 @@
 ---
-title: "Econometrics 1 - Case Study 1"
-author: ''
+title: "Econometrics 1 - Case Study 1 - WS 22/23"
+author: '01226080, '
 date: "`r Sys.Date()`"
 output:
   pdf_document: default
@@ -24,8 +24,8 @@ head(data)
 summary(data)
 ```
 
-The mean of $GDP$ is ... 
-# TODO
+The mean, median, minimum and maximum of the total energy consumption ($TOTALCONS$) and the GDP can be found in the cell's output above.
+
 
 ```{r}
 #define plot labels
@@ -45,6 +45,10 @@ plot(data$GDP, data$TOTALCONS,
      ylab=ylabel)
 ```
 
+Not much is visible, as this is the wrong way to plot multiplicative growth processes.
+One can see an extreme outlier on the top right.
+With this visualization no certain judgement can be made about the relationship of variables.
+
 ```{r}
 plot(log10(data$GDP), log10(data$TOTALCONS),
      main="loglog plot of Total energy consumption over GDP in the year 2000",
@@ -52,8 +56,9 @@ plot(log10(data$GDP), log10(data$TOTALCONS),
      ylab=yloglabel)
 ```
 
+This is the log-log-plot, where the logarithm to the basis $10$ is plotted for both variables/axes.
 
-
+The outlier is still there of course, but lies on the imaginary eyeballed regression line. Because a clear line can be drawn by hand which incorporates most data points, a linear relationship with a high correlation and dependence can be assumed. We will investigate this assumption now by calculating it. 
 
 
 ## 1.2 Simple linear regression
@@ -69,6 +74,16 @@ ols = lm(
 summary(ols)
 ols$coefficients
 ```
+
+The OLS estimates for $\hat{\beta_0}$ is $-3754 \ GWh$ and for $\hat{\beta_1}$ is $0.3380 \ \frac{GWh}{M\$} = 3380 \frac{GWh}{G\$} = 3380 \frac{Wh}{\$}$.
+$\hat{\beta_1}$ is the coefficient associated with an increase of GDP. This means that, in the model, an increase of $1 \ M\$$ results in an increase of $0.338 \ GWh$.
+
+```{r}
+summary(ols)
+```
+
+
+### 1.3 Plot 
 
 ```{r message=FALSE}
 #install.packages("dplyr")
@@ -95,14 +110,43 @@ data %>% ggplot(mapping = aes(x = GDP, y = TOTALCONS)) +
 
 ```
 
+We can see a very strong linear relationship between the GDP and total energy consumption, which is supported by the value of $R^2 = 97.6\%$ in the model's output.
 
 
-## Including Plots
+## 1.4 Residual plot of Model 1
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## 1.5 Log-log-linear Model
+
+
+
+## 1.6 Plot of Model 2 (the log-log-linear model)
+
+
+## 1.7 Numerical implications
+
+### a
+
+
+### b
+
+
+### c
+
+
+
+## 1.8 Model generalization discussion
+
+
+
+## 1.9 Bonusquestion
+
+
+
+
+
+# 2 Theory
+
+
+
