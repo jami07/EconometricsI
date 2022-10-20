@@ -3,6 +3,11 @@
 .RData
 .Ruserdata
 
+*.Rmd_backup
+*.pdf
+*.html
+
+
 # renv:
 .Rprofile
 renv/*
